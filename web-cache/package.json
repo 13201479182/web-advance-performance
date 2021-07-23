@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "nodemon src/server.js"
+    "http1.0": "node ./src/http1.0.js",
+    "http1.1": "node ./src/http1.1.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {}
 }

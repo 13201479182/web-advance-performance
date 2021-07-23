@@ -1,4 +1,84 @@
 
+    浏览器缓存(http: 1.0 & 1.1)
+
+    HTTP: 1.0
+        运行命令:   npm run http1.0
+
+        缓存类型:   强缓存
+        expires:   后面带上utc时间,代表当前资源将在时间点过期
+        pragma:    后面带上no-cache,代表当前资源不采用强缓存策略
+
+        测试效果:   你会看到页面在初次加载后,10秒内刷新页面,其引用的img&js都来自memorycache
+
+    HTTP: 1.1
+        运行命令:   npm run http1.1
+
+        缓存类型:   强缓存 & 协商缓存
+
+        --> 强缓存
+                    cache-control:  max-age(强缓存) | no-cache(不采用强缓存) | no-store(不缓存)
+                    max-age: 后面带上时间戳代表当前资源缓存的时间
+
+        --> 协商缓存
+                    cache-control: no-cache
+                    etag & if-none-match
+                    last-modified & if-none-match
+        
+        测试效果:   你会看到页面每隔10秒内的资源来源都是304,代表其是通过协商缓存返回的,后台通过计时器每隔10秒修改test.js
+                   的文件内容,也就是每隔10s,test的资源来源为200。        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     http缓存:
         类型: 
             强缓存: 缓存时间确定
