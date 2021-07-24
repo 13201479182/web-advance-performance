@@ -1,0 +1,11 @@
+{
+  "name": "web-origin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "node ./src/server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,45 @@
+
+跨域(cors error)
+
+本质: 浏览器限制xhr请求,安全考虑
+
+非简单请求的含义(满足任一条件即属于):
+    使用了下面任一HTTP方法:
+        PUT
+        DELETE
+        CONNECT
+        OPTIONS
+        TRACE
+        PATCH
+    人为设置了对CORS安全的首部字段集合之外的其他首部字段。该集合为：
+        Accept
+        Accept-Language
+        Content-Language
+        Content-Type (but note the additional requirements below)
+        DPR
+        Downlink
+        Save-Data
+        Viewport-Width
+        Width
+    Content-Type的值不属于下列之一:
+        application/x-www-form-urlencoded
+        multipart/form-data
+        text/plain
+
+非简单请求: 需要对预检请求处理,即options请求
+
+跨域cookie:
+    前端: widthCredentials: true
+    后端: 在跨域的域配置开启跨域允许
+
+视觉效果:
+    启动项目: npm run server
+    项目介绍: 当前项目两个域,主域http://localhost:8000,外域http://localhost:8001
+            项目运行在主域,需要访问外域的api
+            跨域配置配置在外域,在主域观测外域配置的cookie
+
+代理:
+    正向代理: 客户端 -> 服务端
+    反向代理: 服务端 -> 服务端
+
+    区别是到第二个服务端的角色不同。            

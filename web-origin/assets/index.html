@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>跨域实践</title>
+</head>
+<body>
+    <h1>姓名:</h1>
+    <h2>爱好:</h2>
+
+
+    <script>
+
+        var url = "http://localhost:8001/getUserInformation";
+
+        var xhr = new XMLHttpRequest;
+            xhr.open("get", url);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState===XMLHttpRequest.DONE && xhr.status===200) {
+                    var res = JSON.parse(xhr.responseText);
+
+                    document.querySelector("h1").innerText = "姓名: " + res.name;
+                    document.querySelector("h2").innerText = "爱好: " + res.like;
+                };
+            };
+
+            // 触发预检请求
+            xhr.setRequestHeader("x-token", "sajkdkja2sdql");
+
+            // 允许跨域读写cookie
+            xhr.withCredentials = true;
+
+            xhr.send();
+    </script>
+</body>
+</html>
